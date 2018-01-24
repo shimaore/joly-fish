@@ -3,5 +3,5 @@
         it "should load #{component}", -> require "../component/#{component}"
 
     describe 'The utilities', ->
-      ['lines-stream','s-to-most','surplus','uniq','utils'].forEach (util) ->
+      ['lines-stream','s-to-most','surplus','uniq','utils','debug'].forEach (util) ->
         it "should load #{util}", -> require "../util/#{util}"

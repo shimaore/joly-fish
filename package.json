@@ -25,6 +25,7 @@
     "most": "^1.7.2",
     "s-array": "^0.4.9",
     "s-js": "^0.4.7",
+    "seem": "^2.0.0",
     "surplus-mixin-data": "^0.5.0-beta2"
   }
 }

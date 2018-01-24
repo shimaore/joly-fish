@@ -1,11 +1,11 @@
-    most = require 'most'
-
 PouchDB as a stream of documents
 --------------------------------
 
 Will emit at least once for the initial document.
 
 `db` is a PouchDB instance, ids an array of document IDs
+
+    most = require 'most'
 
     pouchdb_from_ids_as_stream = (db,ids) ->
       changes = db.changes
@@ -30,34 +30,5 @@ Will emit at least once for the initial document.
       .map ({doc}) -> doc
       .filter (doc) -> doc?
 
-Oboe as stream
---------------
-
-    oboe_stream = (e,o) ->
-      most
-      .fromEvent "node:#{e}", o
-      .map ([v]) -> v
-      .until most.fromEvent('done',o)
-      .until most.fromEvent('fail',o)
-      # .until most.fromEvent('fail',o).chain (error) -> most.throwError error
-
-Stream towards socket.io as event
----------------------------------
-
-    socketio_sink = (io,message,stream) ->
-      stream
-        .forEach (data) -> io.emit message, data
-        .catch (error) -> io.emit 'error', error
-
-Socket.io as a source for a new stream
---------------------------------------
-
-    socketio_source = (io,message) ->
-      most.fromEvent message, io
-
-    module.exports = {
-      pouchdb_from_ids_as_stream
-      oboe_stream
-      socketio_sink
-      socketio_source
-    }
+    module.exports =
+      from_ids: pouchdb_from_ids_as_stream

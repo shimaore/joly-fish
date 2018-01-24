@@ -3,6 +3,8 @@ Create a unified stream for lines (local-number+endpoint)
 
 Provide a list of numbers and endpoints.
 
+    most = require 'most'
+
     lines_stream = ({db,io,numbers,endpoints}) ->
       numbers_ids = numbers.map (id) -> "number:#{id}"
       endpoint_ids = endpoints.map (id) -> "endpoint:#{id}"

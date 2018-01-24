@@ -1,6 +1,8 @@
 Convert a S.js signal into a Most.js stream
 -------------------------------------------
 
+    most = require 'most'
+
     {S} = require './surplus'
     s_to_most = (signal) ->
       h = null

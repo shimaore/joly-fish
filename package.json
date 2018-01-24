@@ -1,0 +1,30 @@
+{
+  "name": "joly-fish",
+  "version": "1.0.0",
+  "description": "A collection of Surplus components for CCNQ4",
+  "main": "index.js",
+  "scripts": {
+    "build": "coffee -c util/*.coffee.md && coffee -c -o jsx src/*.coffee.md && mkdir -p component/ && (cd jsx/ && for f in *.js; do coffee -e 'compiler = require(\"surplus/compiler\"); process.stdin.setEncoding(\"utf-8\"); require(\"stream-to-string\")(process.stdin).then (t) -> console.log compiler.compile t' < $f > ../component/$f; done)",
+    "prepublishOnly": "npm install --only=dev && rm package-lock.json && npm run build",
+    "pretest": "npm install && rm package-lock.json && npm run build",
+    "test": "coffee -c test/*.coffee.md && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/shimaore/joly-fish"
+  },
+  "author": "Stéphane Alnet <stephane@shimaore.net> (https://stephane.shimaore.net/)",
+  "license": "Unlicense",
+  "devDependencies": {
+    "coffeescript": "^2.1.1",
+    "mocha": "^5.0.0",
+    "stream-to-string": "^1.1.0",
+    "surplus": "^0.5.0-beta9"
+  },
+  "dependencies": {
+    "most": "^1.7.2",
+    "s-array": "^0.4.9",
+    "s-js": "^0.4.7",
+    "surplus-mixin-data": "^0.5.0-beta2"
+  }
+}

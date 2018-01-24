@@ -1,0 +1,5 @@
+node_modules/
+component/
+jsx/
+test/*.js
+util/*.js

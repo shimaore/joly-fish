@@ -7,7 +7,7 @@ A very small debugger, with a minimalist interface reminiscent of `tangible`.
 
       debug.catch = (msg) ->
         (error) ->
-          console.error msg, error
+          console.error tag, msg, error
 
       heal = (p) -> p.catch debug.catch 'Caught'
 

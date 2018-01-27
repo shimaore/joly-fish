@@ -53,7 +53,7 @@ Keep the match values so that we can re-evaluate whether we need to be visible w
 
 Data collected
 
-        registered:     S.data t.registered ? false
+        registered:     S.data t.registered ? 0
         display_number: S.data t.display_number ? number.split('@')[0]
         display_name:   S.data t.display_name ? ''
         tags:           SArray t.tags ? []
@@ -159,11 +159,18 @@ Query queuer state.
 
 Process responses from ccnq4-opensips.
 
+      count_contacts = (set,{contact_id,_deleted}) ->
+        if _deleted
+          set.delete contact_id
+        else
+          set.add contact_id
+        value: set.size, seed: set
+
       source
       .filter ({aor}) -> aor?
       .filter this_aor
       .filter ({_missing,contact}) -> contact? and not _missing
-      .map ({_deleted}) -> not _deleted
+      .scan count_contacts, new Set()
       .observe line.registered
 
 Query location state.

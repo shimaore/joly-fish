@@ -159,18 +159,19 @@ Query queuer state.
 
 Process responses from ccnq4-opensips.
 
-      count_contacts = (set,{contact_id,_deleted}) ->
+      contacts = (set,{contact_id,_deleted}) ->
         if _deleted
           set.delete contact_id
         else
           set.add contact_id
-        value: set.size, seed: set
+        set
 
       source
       .filter ({aor}) -> aor?
       .filter this_aor
       .filter ({_missing,contact}) -> contact? and not _missing
-      .scan count_contacts, new Set()
+      .scan contacts, new Set()
+      .map (set) -> set.size
       .observe line.registered
 
 Query location state.

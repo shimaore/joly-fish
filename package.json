@@ -16,16 +16,16 @@
   "author": "Stéphane Alnet <stephane@shimaore.net> (https://stephane.shimaore.net/)",
   "license": "Unlicense",
   "devDependencies": {
-    "coffeescript": "^2.1.1",
-    "mocha": "^5.0.0",
+    "coffeescript": "^2.2.2",
+    "mocha": "^5.0.1",
     "stream-to-string": "^1.1.0",
-    "surplus": "^0.5.0-beta9"
+    "surplus": "^0.5.0"
   },
   "dependencies": {
-    "most": "^1.7.2",
+    "most": "^1.7.3",
     "s-array": "^0.4.9",
-    "s-js": "^0.4.7",
+    "s-js": "^0.4.8",
     "seem": "^2.0.0",
-    "surplus-mixin-data": "^0.5.0-beta2"
+    "surplus-mixin-data": "^0.5.0"
   }
 }

@@ -1,6 +1,5 @@
 A very small debugger, with a minimalist interface reminiscent of `tangible`.
 
-    seem = require 'seem'
     module.exports = (tag) ->
       debug = (args...) ->
         console.log tag, args...
@@ -11,8 +10,4 @@ A very small debugger, with a minimalist interface reminiscent of `tangible`.
 
       heal = (p) -> p.catch debug.catch 'Caught'
 
-      hand = (f) ->
-        F = seem f
-        (args...) -> heal F args...
-
-      {debug,hand,heal}
+      {debug,heal}

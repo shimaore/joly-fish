@@ -23,9 +23,8 @@
   },
   "dependencies": {
     "most": "^1.7.3",
-    "s-array": "^0.4.9",
-    "s-js": "^0.4.8",
-    "seem": "^2.0.0",
+    "s-array": "^0.4.10",
+    "s-js": "^0.4.9",
     "surplus-mixin-data": "^0.5.0"
   }
 }

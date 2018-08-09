@@ -1,6 +1,6 @@
 {
   "name": "joly-fish",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A collection of Surplus components for CCNQ4",
   "main": "index.js",
   "scripts": {

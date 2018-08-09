@@ -6,7 +6,7 @@ Convert a S.js signal into a Most.js stream
     {S} = require './surplus'
     s_to_most = (signal) ->
       h = null
-      S.on signal, -> h? value: S.sample signal
+      S.on signal, -> h? value: signal()
 
       most.unfold ->
         new Promise (resolve) ->
